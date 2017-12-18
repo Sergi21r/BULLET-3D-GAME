@@ -17,11 +17,18 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro assets");
 	bool ret = true;
 
-	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
-	App->camera->LookAt(vec3(0, 0, 0));
+	App->camera->Move(vec3(1.0f, 100.0f, 0.0f));
+	App->camera->LookAt(vec3(0, 0, 5));
 
 	s.size = vec3(5, 3, 1);
 	s.SetPos(0, 2.5f, 20);
+
+	//-------------------------------- MAP -----------------------------------------------------------
+	// FLOOR
+	f1 = App->physics->AddCube(10, 1, 15, 10, 1, 10, 0.0f, Grey);
+	f2 = App->physics->AddCube(10, 1, 15, 10, 1, -5, 0.0f, Grey);
+
+	//------------------------------------------------------------------------------------------------
 
 	sensor = App->physics->AddBody(s, 0.0f);
 	sensor->SetAsSensor(true);
@@ -44,6 +51,13 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
+
+	// -------------------- MAP RENDERS ----------------------------------
+	//FLOOR
+	f1.Render();
+	f2.Render();
+
+	// -------------------------------------------------------------------
 
 	sensor->GetTransform(&s.transform);
 	s.Render();
