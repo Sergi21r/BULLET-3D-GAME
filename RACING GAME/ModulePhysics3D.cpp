@@ -329,6 +329,20 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 	return pvehicle;
 }
 
+Cube ModulePhysics3D::AddCube(float x, float y, float z, float PosX, float PosY, float PosZ, float mass, Color color)
+{
+	Cube c;
+	c.size.x = x;
+	c.size.y = y;
+	c.size.z = z;
+	c.SetPos(PosX, PosY, PosZ);
+	c.color = color;
+	float mass2 = mass;
+
+	AddBody(c, mass2);
+	return c;
+}
+
 // ---------------------------------------------------------
 void ModulePhysics3D::AddConstraintP2P(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB)
 {
