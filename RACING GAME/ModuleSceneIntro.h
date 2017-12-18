@@ -23,5 +23,10 @@ public:
 
 public:
 	Cube s;
+
+	//MAP CUBES
+	Cube f1;
+	Cube f2;
+
 	PhysBody3D* sensor;
 };
