@@ -97,7 +97,11 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(10, 5, 10);
+	vehicle->SetPos(12, 5, 10);
+
+	//create second vehicle
+	vehicle2 = App->physics->AddVehicle(car);
+	vehicle2->SetPos(8, 5, 10);
 	
 	return true;
 }
@@ -143,8 +147,39 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
+	//vehicle 2
+	turn2 = acceleration2 = brake2 = 0.0f;
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+	{
+		acceleration2 = MAX_ACCELERATION2;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+	{
+		if (turn2 < TURN_DEGREES2)
+			turn2 += TURN_DEGREES2;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+	{
+		if (turn2 > -TURN_DEGREES2)
+			turn2 -= TURN_DEGREES2;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+	{
+		brake2 = BRAKE_POWER2;
+	}
+
+	vehicle2->ApplyEngineForce(acceleration2);
+	vehicle2->Turn(turn2);
+	vehicle2->Brake(brake2);
+
+	vehicle2->Render();
+
+
 	char title[80];
-	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
+	sprintf_s(title, "%.1f Km/h , %.1f Km/h", vehicle->GetKmh(), vehicle2->GetKmh());
 	App->window->SetTitle(title);
 
 	return UPDATE_CONTINUE;
