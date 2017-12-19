@@ -23,6 +23,8 @@ public:
 
 public:
 	Cube s;
+	//SF
+	Cube sf;
 
 	//MAP CUBES
 	Cube f1;
@@ -35,6 +37,7 @@ public:
 	Cube f8;
 	Cube f9;
 	Cube f10;
+	Cube f11;
 	Cube f12;
 	Cube f13;
 	Cube f14;
