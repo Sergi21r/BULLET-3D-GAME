@@ -124,6 +124,13 @@ update_status ModulePlayer::Update(float dt)
 		acceleration = MAX_ACCELERATION;
 	}
 
+	if (vehicle->GetKmh() < 0) {
+		if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_DOWN)
+		{
+			brake = BRAKE_POWER;
+		}
+	}
+
 	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
 		if(turn < TURN_DEGREES)
@@ -137,6 +144,11 @@ update_status ModulePlayer::Update(float dt)
 	}
 
 	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+	{
+		acceleration -= MAX_ACCELERATION;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
 	{
 		brake = BRAKE_POWER;
 	}
@@ -154,6 +166,13 @@ update_status ModulePlayer::Update(float dt)
 		acceleration2 = MAX_ACCELERATION2;
 	}
 
+	if (vehicle2->GetKmh() < 0) {
+		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
+		{
+			brake2 = BRAKE_POWER2;
+		}
+	}
+
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
 		if (turn2 < TURN_DEGREES2)
@@ -167,6 +186,11 @@ update_status ModulePlayer::Update(float dt)
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+	{
+		acceleration2 -= MAX_ACCELERATION2;
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
 	{
 		brake2 = BRAKE_POWER2;
 	}
