@@ -27,6 +27,23 @@ public:
 	//MAP CUBES
 	Cube f1;
 	Cube f2;
+	Cube f3;
+	Cube f4;
+	Cube f5;
+	Cube f6;
+	Cube f7;
+	Cube f8;
+	Cube f9;
+	Cube f10;
+	Cube f12;
+	Cube f13;
+	Cube f14;
+	Cube f15;
+	Cube f16;
+	Cube f17;
+	Cube f18;
+	Cube f19;
+	Cube f20;
 
 	PhysBody3D* sensor;
 };
