@@ -71,7 +71,11 @@ bool ModuleSceneIntro::Start()
 	f41 = App->physics->AddCubeRotY(10, 1, 10, 11, 2, 39, 0.0f, Grey, 120);
 
 	//WALLS
-
+	w1 = App->physics->AddCube(2, 6, 95, 15, 2, -11, 0.0f, Blue);
+	w2 = App->physics->AddCubeRotY(2, 6, 18, 8, 2, -64, 0.0f, Blue, 50);
+	w3 = App->physics->AddCube(15, 6, 2, -5, 2, -69, 0.0f, Blue);
+	w4 = App->physics->AddCubeRotY(2, 6, 18, -18, 2, -64, 0.0f, Blue, 130);
+	w5 = App->physics->AddCube(2, 6, 17, -24, 2, -50, 0.0f, Blue);
 
 	//------------------------------------------------------------------------------------------------
 
@@ -145,7 +149,11 @@ update_status ModuleSceneIntro::Update(float dt)
 	f41.Render();
 
 	//WALLS
-
+	w1.Render();
+	w2.Render();
+	w3.Render();
+	w4.Render();
+	w5.Render();
 
 	// -------------------------------------------------------------------
 
