@@ -23,30 +23,19 @@ public:
 
 public:
 	Cube s;
+
 	//SF
 	Cube sf;
 
 	//MAP CUBES
-	Cube f1;
-	Cube f2;
-	Cube f3;
-	Cube f4;
-	Cube f5;
-	Cube f6;
-	Cube f7;
-	Cube f8;
-	Cube f9;
-	Cube f10;
-	Cube f11;
-	Cube f12;
-	Cube f13;
-	Cube f14;
-	Cube f15;
-	Cube f16;
-	Cube f17;
-	Cube f18;
-	Cube f19;
-	Cube f20;
+	Cube f1, f2, f3, f4, f5, f6, f7, f8, f9, f10;
+	Cube f11, f12, f13, f14, f15, f16, f17, f18, f19, f20;
+	Cube f21, f22, f23, f24, f25, f26, f27, f28, f29, f30;
+	Cube f31, f32, f33, f34, f35, f36, f37, f38, f39, f40, f41;
 
+	//WALLS
+	Cube w1, w2, w3, w4, w5, w6, w7, w8, w9, w10;
+	Cube w11, w12, w13, w14, w15, w16, w17, w18, w19, w20;
+	
 	PhysBody3D* sensor;
 };
