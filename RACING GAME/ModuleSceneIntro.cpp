@@ -17,14 +17,13 @@ bool ModuleSceneIntro::Start()
 	LOG("Loading Intro assets");
 	bool ret = true;
 
+	music = App->audio->LoadFx("tokyo.ogg");
+	App->audio->PlayFx(music);
+
 	App->camera->Move(vec3(10.0f, 100.0f, 0.0f));
 	App->camera->LookAt(vec3(-5.0f, 0.0f, 5.0f));
 
-	
-
 	//-------------------------------- MAP -----------------------------------------------------------
-	// SUPER FLOOR
-	//sf = App->physics->AddCube(500, 1, 500, 0, 1, 0, 0.0f, Green2);
 
 	// FLOOR
 	f1 = App->physics->AddCube(10, 1, 50, 10, 2, 10, 0.0f, Grey);
@@ -110,9 +109,6 @@ bool ModuleSceneIntro::Start()
 	w37 = App->physics->AddCubeRotY(2, 6, 4, 31, 2, 50, 0.0f, Blue, 50);
 	w38 = App->physics->AddCube(16, 6, 2, 22, 2, 49, 0.0f, Blue);
 	w39 = App->physics->AddCubeRotY(2, 6, 15, 9, 2, 45, 0.0f, Blue, 50);
-	
-	//start wall
-	//wstart= App->physics->AddCube(12, 3, 1, 10, 3, 13, 0.0f, Blue);
 
 	//------------------------------------------------------------------------------------------------
 
@@ -151,8 +147,6 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.Render();
 
 	// -------------------- MAP RENDERS ----------------------------------
-	//SF
-	//sf.Render();
 
 	//FLOOR
 	f1.Render();
@@ -237,21 +231,10 @@ update_status ModuleSceneIntro::Update(float dt)
 	w37.Render();
 	w38.Render();
 	w39.Render();
-	
-
-	//wall start
-	//wstart.Render();
-
-	/*if (countdownb == false) {
-		wstart.SetPos(0, 0, 0);
-	}*/
-	
 
 	// -------------------------------------------------------------------
 
-	//sensor->GetTransform(&s.transform);
 	s1.Render();
-	//s2.Render();
 
 
 	return UPDATE_CONTINUE;
@@ -284,14 +267,5 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		half = true;
 		start = false;
 	}
-
-	/*if (body2 == sensor1) {
-		if (lap2 == 0) {
-			lap2 = 1;
-		}
-	}*/
-
-
-
 }
 
