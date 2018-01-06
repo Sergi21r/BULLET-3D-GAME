@@ -220,6 +220,21 @@ update_status ModulePlayer::Update(float dt)
 		App->window->SetTitle(p2);
 	}
 
+	//restart
+
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	{
+		vehicle->SetPos(12, 5, 10);
+		vehicle2->SetPos(8, 5, 10);
+		App->scene_intro->p1win = false;
+		App->scene_intro->p2win = false;
+		App->scene_intro->start = false;
+		App->scene_intro->half = false;
+		App->scene_intro->lap1 = 0;
+		App->scene_intro->lap2 = 0;
+	}
+	
+
 	return UPDATE_CONTINUE;
 }
 

@@ -171,6 +171,7 @@ update_status ModuleSceneIntro::Update(float dt)
 	s1.Render();
 	s2.Render();
 
+
 	return UPDATE_CONTINUE;
 }
 
