@@ -5,6 +5,7 @@
 ### INTRODUCTION
 
 This is our first game made it with library Bullet. Is a racing car game for 2 persons.
+The first player who makes 3 laps wins.
 HOPE YOU ENJOY!
 
 
