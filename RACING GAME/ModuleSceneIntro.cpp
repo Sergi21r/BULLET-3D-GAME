@@ -130,7 +130,7 @@ bool ModuleSceneIntro::Start()
 	sensor2->SetAsSensor(true);
 	sensor2->collision_listeners.add(this);
 
-
+	
 
 	return ret;
 }
@@ -240,17 +240,18 @@ update_status ModuleSceneIntro::Update(float dt)
 	
 
 	//wall start
-	/*wstart.Render();
+	//wstart.Render();
 
-	if (countdownb == false) {
-		wstart.SetPos(100,2,100);
+	/*if (countdownb == false) {
+		wstart.SetPos(0, 0, 0);
 	}*/
+	
 
 	// -------------------------------------------------------------------
 
 	//sensor->GetTransform(&s.transform);
 	s1.Render();
-	s2.Render();
+	//s2.Render();
 
 
 	return UPDATE_CONTINUE;

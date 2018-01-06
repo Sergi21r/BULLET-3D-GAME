@@ -207,19 +207,20 @@ update_status ModulePlayer::Update(float dt)
 
 	/*if (App->scene_intro->countdownb == true) {
 		//countdownt.Start();
-		countdownf = countdownt.Read();
+		countdownf = countdownt.Read()/1000;
 		char time[10];
 		sprintf_s(time, "%i ...", countdownf);
 		App->window->SetTitle(time);
 		
-		if (countdownf == 5000) {
+		if (countdownf >= 5) {
 			countdownt.Stop();
+			App->scene_intro->countdownb = false;
 		}
 	}*/
 
-
+	countdownf = countdownt.Read() / 1000;
 	char title[80];
-	sprintf_s(title, "Player1: %.1f Km/h Lap %i , Player2: %.1f Km/h Lap %i", vehicle->GetKmh(), App->scene_intro->lap1, vehicle2->GetKmh(), App->scene_intro->lap2);
+	sprintf_s(title, "Player1: %.1f Km/h     Lap %i     Player2: %.1f Km/h   TIME: %i", vehicle->GetKmh(), App->scene_intro->lap1, vehicle2->GetKmh(), countdownf);
 	App->window->SetTitle(title);
 
 	if (App->scene_intro->p1win == true) {
