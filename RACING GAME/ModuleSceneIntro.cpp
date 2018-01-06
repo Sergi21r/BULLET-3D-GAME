@@ -76,6 +76,9 @@ bool ModuleSceneIntro::Start()
 	w4 = App->physics->AddCubeRotY(2, 6, 18, -18, 2, -64, 0.0f, Blue, 130);
 	w5 = App->physics->AddCube(2, 6, 17, -24, 2, -50, 0.0f, Blue);
 
+	//start wall
+	//wstart= App->physics->AddCube(12, 3, 1, 10, 3, 13, 0.0f, Blue);
+
 	//------------------------------------------------------------------------------------------------
 
 	//sensors
@@ -164,6 +167,9 @@ update_status ModuleSceneIntro::Update(float dt)
 	w3.Render();
 	w4.Render();
 	w5.Render();
+
+	//wall start
+	wstart.Render();
 
 	// -------------------------------------------------------------------
 

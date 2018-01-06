@@ -205,6 +205,15 @@ update_status ModulePlayer::Update(float dt)
 
 	//window title
 
+	/*if (App->scene_intro->countdownb == true) {
+		//countdownt.Start();
+		countdownf = countdownt.Read();
+		char time[10];
+		sprintf_s(time, "%3.f ...", countdownf);
+		App->window->SetTitle(time);
+	}*/
+
+
 	char title[80];
 	sprintf_s(title, "Player1: %.1f Km/h Lap %i , Player2: %.1f Km/h Lap %i", vehicle->GetKmh(), App->scene_intro->lap1, vehicle2->GetKmh(), App->scene_intro->lap2);
 	App->window->SetTitle(title);

@@ -33,4 +33,8 @@ public:
 	float turn2;
 	float acceleration2;
 	float brake2;
+
+	//countdown start
+	float countdownf;
+	Timer countdownt;
 };
