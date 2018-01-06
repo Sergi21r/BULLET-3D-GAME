@@ -103,6 +103,7 @@ bool ModulePlayer::Start()
 	vehicle2 = App->physics->AddVehicle(car);
 	vehicle2->SetPos(8, 5, 10);
 	
+	
 	return true;
 }
 
@@ -202,9 +203,22 @@ update_status ModulePlayer::Update(float dt)
 	vehicle2->Render();
 
 
+	//window title
+
 	char title[80];
-	sprintf_s(title, "%.1f Km/h , %.1f Km/h", vehicle->GetKmh(), vehicle2->GetKmh());
+	sprintf_s(title, "Player1: %.1f Km/h Lap %i , Player2: %.1f Km/h Lap %i", vehicle->GetKmh(), App->scene_intro->lap1, vehicle2->GetKmh(), App->scene_intro->lap2);
 	App->window->SetTitle(title);
+
+	if (App->scene_intro->p1win == true) {
+		char p1[50];
+		sprintf_s(p1, "PLAYER 1 WINS, PRESS R TO RESTART");
+		App->window->SetTitle(p1);
+	}
+	if (App->scene_intro->p2win == true) {
+		char p2[50];
+		sprintf_s(p2, "PLAYER 2 WINS, PRESS R TO RESTART");
+		App->window->SetTitle(p2);
+	}
 
 	return UPDATE_CONTINUE;
 }

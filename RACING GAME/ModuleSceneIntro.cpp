@@ -20,8 +20,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(10.0f, 100.0f, 0.0f));
 	App->camera->LookAt(vec3(-5.0f, 0.0f, 5.0f));
 
-	s.size = vec3(5, 3, 1);
-	s.SetPos(0, 2.5f, 20);
+	
 
 	//-------------------------------- MAP -----------------------------------------------------------
 	// SUPER FLOOR
@@ -79,9 +78,20 @@ bool ModuleSceneIntro::Start()
 
 	//------------------------------------------------------------------------------------------------
 
-	sensor = App->physics->AddBody(s, 0.0f);
-	sensor->SetAsSensor(true);
-	sensor->collision_listeners.add(this);
+	//sensors
+	s1.size = vec3(12, 3, 1);
+	s1.SetPos(10, 3.0f, 14);
+	sensor1 = App->physics->AddBody(s1, 0.0f);
+	sensor1->SetAsSensor(true);
+	sensor1->collision_listeners.add(this);
+
+	s2.size = vec3(12, 3, 1);
+	s2.SetPos(-51, 3.0f, 14);
+	sensor2 = App->physics->AddBody(s2, 0.0f);
+	sensor2->SetAsSensor(true);
+	sensor2->collision_listeners.add(this);
+
+
 
 	return ret;
 }
@@ -157,14 +167,48 @@ update_status ModuleSceneIntro::Update(float dt)
 
 	// -------------------------------------------------------------------
 
-	sensor->GetTransform(&s.transform);
-	s.Render();
+	//sensor->GetTransform(&s.transform);
+	s1.Render();
+	s2.Render();
 
 	return UPDATE_CONTINUE;
 }
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	LOG("Hit!");
+	
+	if (body1 == sensor1) {
+		if (start == false && half == false) {
+			start = true;
+			lap1 = 1;
+		}
+		else if (half == true) {
+			half = false;
+			start = true;
+			if (lap1 == 3) {
+				p1win = true;
+			}
+			if (lap1 == 2) {
+				lap1 = 3;
+			}
+			if (lap1 == 1) {
+				lap1 = 2;
+			}
+		}
+	}
+
+	if (body1 == sensor2) {
+		half = true;
+		start = false;
+	}
+
+	/*if (body2 == sensor1) {
+		if (lap2 == 0) {
+			lap2 = 1;
+		}
+	}*/
+
+
+
 }
 

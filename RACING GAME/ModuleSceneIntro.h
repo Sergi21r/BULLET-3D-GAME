@@ -3,6 +3,7 @@
 #include "p2DynArray.h"
 #include "Globals.h"
 #include "Primitive.h"
+#include "p2Point.h"
 
 #define MAX_SNAKE 2
 
@@ -22,7 +23,13 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
-	Cube s;
+	//Cube sensor
+	Cube s1;
+	Cube s2;
+
+	//sensors
+	PhysBody3D* sensor1;
+	PhysBody3D* sensor2;
 
 	//SF
 	Cube sf;
@@ -36,6 +43,15 @@ public:
 	//WALLS
 	Cube w1, w2, w3, w4, w5, w6, w7, w8, w9, w10;
 	Cube w11, w12, w13, w14, w15, w16, w17, w18, w19, w20;
+
+	int lap1 = 0;
+	int lap2 = 0;
+
+	bool start = false;
+	bool half = false;
+
+	bool p1win = false;
+	bool p2win = false;
 	
-	PhysBody3D* sensor;
+	
 };
