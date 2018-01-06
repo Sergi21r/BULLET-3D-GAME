@@ -209,8 +209,12 @@ update_status ModulePlayer::Update(float dt)
 		//countdownt.Start();
 		countdownf = countdownt.Read();
 		char time[10];
-		sprintf_s(time, "%3.f ...", countdownf);
+		sprintf_s(time, "%i ...", countdownf);
 		App->window->SetTitle(time);
+		
+		if (countdownf == 5000) {
+			countdownt.Stop();
+		}
 	}*/
 
 

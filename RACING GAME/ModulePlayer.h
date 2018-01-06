@@ -35,6 +35,6 @@ public:
 	float brake2;
 
 	//countdown start
-	float countdownf;
+	int countdownf;
 	Timer countdownt;
 };

@@ -122,6 +122,7 @@ bool ModuleSceneIntro::Start()
 	sensor1 = App->physics->AddBody(s1, 0.0f);
 	sensor1->SetAsSensor(true);
 	sensor1->collision_listeners.add(this);
+	
 
 	s2.size = vec3(12, 3, 1);
 	s2.SetPos(-51, 3.0f, 14);
@@ -239,7 +240,11 @@ update_status ModuleSceneIntro::Update(float dt)
 	
 
 	//wall start
-	wstart.Render();
+	/*wstart.Render();
+
+	if (countdownb == false) {
+		wstart.SetPos(100,2,100);
+	}*/
 
 	// -------------------------------------------------------------------
 
